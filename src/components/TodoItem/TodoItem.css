@@ -1,0 +1,41 @@
+.todo-item {
+  font-size: 24px;
+  font-weight: 200;
+  border-bottom: 1px solid #ededed;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0 16px 0 50px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.todo-item:hover .fa-times {
+  display: block;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+.fa-circle {
+  cursor: pointer;
+}
+
+.fa-check-circle {
+  color: #5dc2af;
+  cursor: pointer;
+}
+
+.fa-times {
+  display: none;
+  color: #cc9a9a;
+  cursor: pointer;
+}
+
+.mark {
+  position: absolute;
+  left: 8px;
+}
