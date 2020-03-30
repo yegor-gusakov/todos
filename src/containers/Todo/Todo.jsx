@@ -57,7 +57,7 @@ class Todo extends Component {
     const isTasksExist = tasks && tasks.length > 0;
     const filteredTasks = this.filterTasks(tasks, filters);
     const taskCounter = this.getActiveTasksCounter(tasks);
-    const isCompleted = tasks.filter(task => task.isCompleted).length;
+    const isCompleted = !!tasks.filter(task => task.isCompleted).length;
 
     return (
       <div className="todo-wrapper">
@@ -68,7 +68,13 @@ class Todo extends Component {
           value={taskText}
         />
         {isTasksExist && <TodoList completeTask={completeTask} tasksList={filteredTasks} removeTask={removeTask} />}
-        {isTasksExist && <Footer changeFilter={changeFilter} clearCompletedTasks={clearCompletedTasks} amount={taskCounter} activeFilter={filters} isCompleted={isCompleted} />}
+        {isTasksExist &&
+          <Footer
+            changeFilter={changeFilter}
+            clearCompletedTasks={clearCompletedTasks}
+            amount={taskCounter}
+            activeFilter={filters}
+            isCompleted={isCompleted} />}
       </div>
     );
   }
@@ -78,16 +84,3 @@ export default connect(({ tasks, filters }) => ({
   tasks,
   filters,
 }), { addTask, removeTask, completeTask, completeAllTasks, changeFilter, clearCompletedTasks })(Todo);
-
-
-
-
-
-
-
-
-
-
-
-
-//
